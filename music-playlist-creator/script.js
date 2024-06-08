@@ -3,7 +3,6 @@ var span = document.getElementsByClassName("close")[0];
 const remplaylist = document.getElementById("playlist-grid");
 const songList = document.getElementById("songs-container");
 const homebutton = document.getElementById("home-button");
-//homebutton.innerHTML = `<i class="fa-solid fa-house"></i>`
 
 
 function makeCards() {
@@ -15,8 +14,6 @@ function makeCards() {
             openModal(d);
         })
         card.className = "playlist-blocks";
-
-
 
         const image = document.createElement("img");
         image.src = d["playlist_art"]
@@ -35,8 +32,6 @@ function makeCards() {
         var likeicon = document.createElement("span")
         likeicon.innerHTML =
             `<i class="fa-regular fa-heart" id="${d.playlistID}likeicon"></i>`
-        //<i class="fa-regular fa-heart"></i>
-        // <span class = "close"> &times;</span>
         card.appendChild(likeicon)
 
 
@@ -47,18 +42,13 @@ function makeCards() {
 
         var deletebutton = document.createElement("span")
         deletebutton.innerHTML = `<i class="fa-solid fa-trash" ></i>`
-            // `<i class="fa-regular fa-heart" id="${d.playlistID}likeicon"></i>`
-        //<i class="fa-regular fa-heart"></i>
-        // <span class = "close"> &times;</span>
+
         card.appendChild(deletebutton);
-
-
-
         document.getElementById("playlist-grid").appendChild(card);
 
 
+        // add an event listener to check if and when someone clicks on the like icon
         let count = 0
-        // increase the count
         likeicon.addEventListener("click", () => {
             event.stopPropagation();
             count++
@@ -72,7 +62,6 @@ function makeCards() {
         deletebutton.addEventListener('click', (event)=>{
             event.stopPropagation();
             playlistContainer.removeChild(card);
-            // makeCards();
 
         })
 
@@ -125,15 +114,9 @@ function modalcontent(playlist) {
                 <div id = "songtime">${song.duration}</br> </div
             </div>`
             ;
-
         songList.appendChild(remplaylist);
     })
-
 }
-
-// function deleteplaylistcards(){
-
-// })
 
 // shuffle  each playlist function
 let shufflebutton = document.getElementsByClassName("shuffle-button");
@@ -144,42 +127,25 @@ function shuffleplaylist(playlist) {
         let tmp = playlist.songs[j];
         playlist.songs[j] = playlist.songs[y];
         playlist.songs[y] = tmp;
-
     }
     modalcontent(playlist)
-
 }
 
-// display  playlist on new page 
-// function displayPlaylist(playlist){
-//     let index = randomPLaylist();
-//     let playlistArray = playlists[index];
-//     document.getElementById("playlistImage").src = playlists[index].playlist_art;
-//     document.getElementById("playlistTitle").innerText = playlists[index].playlists_name;
-//     document.getElementById("creatorName").innerText = playlists[index].playlist_creator;
-//     makeCards(playlistArray);
+// search bar  button functionality 
+// const searchbar = document.getElementById("search-bar");
+// searchbar.addEventListener("keyup", (event)=>{
+//     const searchtext = event.target.value.toLowerCase();
+//     const musicalblockforsearch = document.querySelectorAll('.playlist-block)');{
+//         musicalblockforsearch.forEach(musicBlock =>{
+//             const playlistname = musicblock.querySelector('.music-text').textContent.tolowercase();
+//             const playlist_creator = musicalBlock.querySelector('.music-creator').textContent.toLowerCase();
+//             if (playlistname.includes(searchText) || playlist_creator.includes(searchText)){
+//                 musicBlock.style.diaplay = "block";
+//             }
+//             else{
+//                 musicBlock.style.display = 'name';                
+//             }       
+//         }) 
+//     }
+// })
 
-//     let shuffleButton = document.getElementById("shuffle");
-//     shuffleButton.addEventListener("click", function(event){
-//         shuffleplaylist(playlist);
-//     });
-
-//  }
-
-// //  create a random playlist for the fe
-// function randomPLaylist(){ 
-//      let randomNum = Math.floor(Math.random()*(playlistData.playlists.length+1));
-//      return randomNum
-
-// }
-// displayPlaylist(playlist)
-
-
-// function deletePlaylist(){
-
-// }
-
-
-// function addPlaylist(){
-
-// }

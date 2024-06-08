@@ -82,9 +82,7 @@ header:hover{
     width: 80%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* .playlistimage{
-    
-} */
+
 .close {
     color: #aaa;
     float: right;
@@ -221,3 +219,4 @@ header:hover{
     background-color: #aaa;
     box-shadow: 4px 4px color(srgb red rgb(98, 141, 98) blue)
 }
+
