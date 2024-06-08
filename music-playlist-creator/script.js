@@ -1,7 +1,9 @@
 var modal = document.getElementById("playlistmodal");
 var span = document.getElementsByClassName("close")[0];
 const remplaylist = document.getElementById("playlist-grid");
-const songList = document.getElementById("songs-container")
+const songList = document.getElementById("songs-container");
+const homebutton = document.getElementById("home-button");
+//homebutton.innerHTML = `<i class="fa-solid fa-house"></i>`
 
 
 function makeCards() {
@@ -38,16 +40,26 @@ function makeCards() {
         card.appendChild(likeicon)
 
 
+
         const numoflikes = document.createElement("div");
         numoflikes.innerHTML = d["likeCount"]
         card.appendChild(numoflikes);
+
+        var deletebutton = document.createElement("span")
+        deletebutton.innerHTML = `<i class="fa-solid fa-trash" ></i>`
+            // `<i class="fa-regular fa-heart" id="${d.playlistID}likeicon"></i>`
+        //<i class="fa-regular fa-heart"></i>
+        // <span class = "close"> &times;</span>
+        card.appendChild(deletebutton);
+
+
 
         document.getElementById("playlist-grid").appendChild(card);
 
 
         let count = 0
         // increase the count
-        likeicon.addEventListener("click", (event) => {
+        likeicon.addEventListener("click", () => {
             event.stopPropagation();
             count++
             numoflikes.innerText = count
@@ -56,7 +68,13 @@ function makeCards() {
                 likeicon.innerHTML = `<i class="fa-solid fa-heart" id="${d.playlistID}likeicon"></i>`
             }
         })
+        //let deletebutton = document.getElementById(`delete-${playlist.playlistID}`);
+        deletebutton.addEventListener('click', (event)=>{
+            event.stopPropagation();
+            playlistContainer.removeChild(card);
+            // makeCards();
 
+        })
 
     })
 }
@@ -131,8 +149,6 @@ function shuffleplaylist(playlist) {
     modalcontent(playlist)
 
 }
-
-
 
 // display  playlist on new page 
 // function displayPlaylist(playlist){

@@ -23,6 +23,10 @@ header:hover{
 }
 .playlist-grid{
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
 }
 .playlist-blocks{
     border: 5px solid rgb(16, 81, 16);
@@ -156,15 +160,18 @@ header:hover{
 }
 
 .featured{
+    display: flex;
+    flex-direction: column;
     border: 5px solid rgb(16, 81, 16);
-    padding: 50px;
-    margin: 1em;
-    width: 200px;
+    padding: 30px 70px ;
+    margin: 20px;
+    width: 300px;
     display: inline-block;
     border-radius: 5px;
     box-shadow: 3px 3px #111;
     background-color: aquamarine;
-
+    overflow-y: scroll;
+    height: 400px;
 }
 
 #Playlistimage{
@@ -173,16 +180,44 @@ header:hover{
 }
 
 #song-container-feature{
+    display: flex;
+    flex-direction: column;
     position: fixed;
    z-index: 1;
    left: 0;
    top: 0;
-   width:100% ;
+   width: 300px;;
    height: 100%;
    overflow:auto;
    background-color: rgba(217, 194, 194, 0.4);
    display: none;
+
 }
 
+#home {
+    display: flex;
+    padding: 0px 25%;
+}
 
+#playlist-image {
+    height: 50%;
+    border: 40px
 
+}
+#right-side{
+    border: 5px solid rgb(16, 81, 16);
+    padding: 50px;
+    margin: 1em;
+    width: 300px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 3px 3px #111;
+    background-color: aquamarine;
+    transition: border 0.2s, background-color 0.2s, box-shadow 0.2;
+    
+}
+.right-side:hover{
+    border: 5px solid #caebd8;
+    background-color: #aaa;
+    box-shadow: 4px 4px color(srgb red rgb(98, 141, 98) blue)
+}
